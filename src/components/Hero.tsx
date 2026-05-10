@@ -26,7 +26,7 @@ export const Hero: React.FC = () => {
         <div 
           className="absolute inset-0 opacity-10 mix-blend-luminosity bg-cover bg-center transition-opacity duration-1000"
           style={{ 
-            backgroundImage: 'url("https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2000&auto=format&fit=crop")',
+            backgroundImage: 'url("/media/nasa-1.jpg")',
             filter: 'contrast(1.2)'
           }}
         />

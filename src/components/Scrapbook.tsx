@@ -34,9 +34,6 @@ const Polaroid: React.FC<PolaroidProps> = ({ src, alt, rotation, xOffset, yOffse
           alt={alt} 
           className="object-cover w-full h-full pointer-events-none"
           draggable={false}
-          onError={(e) => {
-            e.currentTarget.src = `https://images.unsplash.com/photo-1517841905240-472988babdf9?w=400&q=80&auto=format&fit=crop`;
-          }}
         />
       </div>
       {caption && (
