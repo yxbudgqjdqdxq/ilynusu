@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useTheme } from '../contexts/ThemeContext';
 import { Moon, Sun, Monitor } from 'lucide-react';
 import { cn } from '../lib/utils';
@@ -16,13 +16,13 @@ export const ThemeControls: React.FC = () => {
   ] as const;
 
   return (
-    <div className="fixed bottom-4 left-0 w-full flex justify-center z-50 px-4 pointer-events-none">
+    <div className="fixed bottom-4 left-0 w-full flex justify-center z-[100] px-4 pointer-events-none">
       
       <motion.div 
         layout
-        className="glass-panel pointer-events-auto rounded-full p-2 flex items-center gap-2 md:gap-4 shadow-2xl border border-[var(--base-glass-border)] shrink-0 max-w-[95vw] md:max-w-full overflow-hidden"
+        className="glass-panel hover:bg-white/10 dark:hover:bg-black/10 pointer-events-auto rounded-full p-2 flex items-center gap-2 md:gap-4 shadow-2xl border border-[var(--base-glass-border)] shrink-0 max-w-[95vw] md:max-w-max overflow-x-auto hide-scrollbar"
       >
-        <div className="flex items-center gap-2 overflow-x-auto hide-scrollbar px-1 sm:px-2 w-full">
+        <div className="flex items-center gap-2 px-1 sm:px-2 w-full min-w-max">
           
           {/* Text-based Palettes */}
           <div className="flex items-center gap-1 md:gap-2 border-[var(--base-glass-border)] pr-2 md:border-r md:pr-4 flex-shrink-0">

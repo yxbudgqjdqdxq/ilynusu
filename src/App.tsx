@@ -7,6 +7,7 @@ import { Hero } from './components/Hero';
 import { BlueQuote } from './components/BlueQuote';
 import { Meaning } from './components/Meaning';
 import { Scrapbook } from './components/Scrapbook';
+import { VideoMemory } from './components/VideoMemory';
 import { KissSnap } from './components/KissSnap';
 import { Notes } from './components/Notes';
 import { MonkeyEasterEgg } from './components/easter-eggs/Monkey';
@@ -28,6 +29,7 @@ export default function App() {
           <BlueQuote />
           <Meaning />
           <Scrapbook />
+          <VideoMemory />
           <KissSnap />
           <Notes />
           <MonkeyEasterEgg />
