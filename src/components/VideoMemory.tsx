@@ -36,10 +36,10 @@ export const VideoMemory: React.FC = () => {
         
         <div className="text-center z-10 mb-16 px-6">
           <h3 className="font-serif text-3xl md:text-5xl text-[var(--base-text)] italic font-light mb-4">
-            Motion sickness.
+            just look at her.
           </h3>
           <p className="font-sans text-[var(--base-muted)] max-w-md mx-auto text-sm md:text-base lowercase">
-            you were laughing and the camera was shaking and i was probably the reason for both. i kept it. obviously i kept it.
+            she’s not doing anything. that’s the thing. she’s just sitting there, chin on her hand, looking, and somehow that’s the whole problem. i saved it because i didn’t know what else to do with it.
           </p>
         </div>
 
