@@ -3,7 +3,7 @@
 @theme {
   --font-sans: "Inter", sans-serif;
   --font-serif: "Cormorant Garamond", serif;
-  --font-handwriting: "Great Vibes", cursive;
+  --font-handwriting: "Alex Brush", cursive;
 }
 
 @layer base {

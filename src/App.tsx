@@ -11,6 +11,7 @@ import { VideoMemory } from './components/VideoMemory';
 import { KissSnap } from './components/KissSnap';
 import { Notes } from './components/Notes';
 import { MonkeyEasterEgg } from './components/easter-eggs/Monkey';
+import { SecretMessage } from './components/easter-eggs/SecretMessage';
 
 export default function App() {
   const [isLoading, setIsLoading] = useState(true);
@@ -33,6 +34,7 @@ export default function App() {
           <KissSnap />
           <Notes />
           <MonkeyEasterEgg />
+          <SecretMessage />
           
           <footer className="w-full py-12 text-center text-xs font-sans text-[var(--base-muted)]/40 tracking-widest uppercase">
             <p className="mb-2">For Mahadiyat</p>
