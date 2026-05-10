@@ -38,19 +38,6 @@ export const LoadingScreen: React.FC<LoadingScreenProps> = ({ onComplete }) => {
   const text = "MAHADIYAT";
   const letters = Array.from(text);
 
-  const container = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: { staggerChildren: 0.15, delayChildren: 0.5 },
-    },
-  };
-
-  const child = {
-    hidden: { opacity: 0, y: 40, filter: "blur(15px)", scale: 0.8 },
-    visible: { opacity: 1, y: 0, filter: "blur(0px)", scale: 1 },
-  };
-
   return (
     <AnimatePresence>
       <motion.div
@@ -69,68 +56,77 @@ export const LoadingScreen: React.FC<LoadingScreenProps> = ({ onComplete }) => {
           className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80vw] h-[80vw] md:w-[40vw] md:h-[40vw] rounded-full bg-[var(--base-accent)] filter blur-[100px] md:blur-[140px] pointer-events-none mix-blend-screen"
         />
 
-        <motion.div
-          variants={container}
-          initial="hidden"
-          animate="visible"
-          className="relative z-10 flex text-center overflow-visible"
-        >
-          {letters.map((letter, index) => (
-            <motion.span
-              variants={child}
-              transition={{ duration: 1.5, ease: [0.2, 0.65, 0.3, 0.9] }}
-              key={index}
-              className={cn(
-                "relative inline-block text-[#EBEBEB] font-serif text-5xl md:text-7xl lg:text-8xl tracking-[0.1em]",
-                letter === " " && "w-3 md:w-6"
-              )}
-            >
-              {letter}
-              {/* Sparkle subtle animation around each letter */}
-              <motion.span
-                animate={{
-                  opacity: [0, 1, 0],
-                  scale: [0.5, 1.5, 0.5],
-                  rotate: [0, 90, 180]
-                }}
-                transition={{
-                  duration: 2 + Math.random() * 2,
-                  repeat: Infinity,
-                  delay: index * 0.2 + Math.random(),
-                  ease: "easeInOut"
-                }}
-                className="absolute -top-2 -right-2 w-1 h-1 bg-white rounded-full blur-[1px] opacity-0"
-              />
-              <motion.span
-                animate={{
-                  opacity: [0, 0.8, 0],
-                  scale: [0.5, 1, 0.5],
-                  y: [0, -15, -30]
-                }}
-                transition={{
-                  duration: 3 + Math.random() * 2,
-                  repeat: Infinity,
-                  delay: index * 0.3 + Math.random(),
-                  ease: "easeInOut"
-                }}
-                className="absolute bottom-0 left-1/2 w-0.5 h-0.5 bg-[var(--base-accent)] rounded-full blur-[0.5px] opacity-0"
-              />
-            </motion.span>
-          ))}
-        </motion.div>
+        <div className="relative z-10 flex text-center overflow-visible">
+          {letters.map((letter, index) => {
+            // Calculate how much this specific letter should be filled
+            // based on the overall progress (0 to 100)
+            const letterThreshold = (index / letters.length) * 100;
+            const nextThreshold = ((index + 1) / letters.length) * 100;
+            const isFilled = progress >= nextThreshold;
+            const currentFill = Math.max(0, Math.min(100, ((progress - letterThreshold) / (nextThreshold - letterThreshold)) * 100));
+            
+            return (
+              <div key={index} className="relative inline-block mx-1 md:mx-2">
+                {/* Background (unfilled) letter */}
+                <span className="text-white/10 font-serif text-5xl md:text-7xl lg:text-8xl tracking-[0.1em]">
+                  {letter}
+                </span>
 
-        <div className="relative z-10 mt-16 w-64 md:w-80 h-[1px] bg-white/10 rounded-full overflow-hidden">
-          <motion.div 
-            className="h-full bg-white/80 shadow-[0_0_15px_rgba(255,255,255,0.7)]"
-            style={{ width: `${progress}%` }}
-          />
+                {/* Foreground (filled) letter with clip-path */}
+                <span 
+                  className="absolute left-0 top-0 text-[#EBEBEB] font-serif text-5xl md:text-7xl lg:text-8xl tracking-[0.1em] drop-shadow-[0_0_15px_rgba(255,255,255,0.7)]"
+                  style={{
+                    clipPath: `inset(${100 - currentFill}% 0 0 0)` // Fills from bottom to top
+                  }}
+                >
+                  {letter}
+                </span>
+
+                {/* Animated particles floating around the letter when it's actively filling or filled */}
+                {currentFill > 0 && (
+                  <>
+                    <motion.span
+                      initial={{ opacity: 0, scale: 0 }}
+                      animate={{
+                        opacity: [0, 0.8, 0],
+                        scale: [0.5, 1.5, 0.5],
+                        y: [-10, -40, -60],
+                        x: [(Math.random() - 0.5) * 40, (Math.random() - 0.5) * 60]
+                      }}
+                      transition={{
+                        duration: 1.5 + Math.random(),
+                        repeat: Infinity,
+                        ease: "easeOut"
+                      }}
+                      className="absolute bottom-0 left-1/2 w-1.5 h-1.5 md:w-2 md:h-2 bg-white rounded-full blur-[1px] z-20"
+                    />
+                    <motion.span
+                      initial={{ opacity: 0, scale: 0 }}
+                      animate={{
+                        opacity: [0, 0.5, 0],
+                        scale: [0.8, 2, 0.8],
+                        rotate: [0, 180, 360]
+                      }}
+                      transition={{
+                        duration: 2 + Math.random() * 2,
+                        repeat: Infinity,
+                        delay: Math.random(),
+                        ease: "easeInOut"
+                      }}
+                      className="absolute top-1/4 -right-4 w-4 h-4 border border-[var(--base-accent)] rounded-full opacity-0 pointer-events-none"
+                    />
+                  </>
+                )}
+              </div>
+            );
+          })}
         </div>
         
         <motion.p 
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: isReady ? 1 : 0.4, y: 0 }}
           transition={{ delay: 1.5, duration: 1.5 }}
-          className="mt-8 text-[10px] md:text-xs font-sans tracking-[0.4em] uppercase text-white/50"
+          className="mt-16 text-[10px] md:text-xs font-sans tracking-[0.4em] uppercase text-white/50"
         >
           {isReady ? "okay. hi." : "finding the right words."}
         </motion.p>
