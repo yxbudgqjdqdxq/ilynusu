@@ -11,7 +11,10 @@ export const Hero: React.FC = () => {
   });
 
   const y = useTransform(scrollYProgress, [0, 1], ["0%", "50%"]);
-  const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
+  const contentY = useTransform(scrollYProgress, [0, 1], [0, -100]);
+  const opacity = useTransform(scrollYProgress, [0, 0.4], [1, 0]);
+  const blur = useTransform(scrollYProgress, [0, 0.5], [0, 20]);
+  const filter = useTransform(blur, (v) => `blur(${v}px)`);
 
   return (
     <section ref={containerRef} className="relative h-[100svh] w-full flex items-center justify-center overflow-hidden">
@@ -56,8 +59,8 @@ export const Hero: React.FC = () => {
 
       {/* Content */}
       <motion.div 
-        style={{ opacity }}
-        className="relative z-20 flex flex-col items-center max-w-2xl px-6 text-center"
+        style={{ opacity, y: contentY, filter }}
+        className="relative z-20 flex flex-col items-center max-w-2xl px-6 text-center will-change-transform will-change-filter"
       >
         <motion.p 
           initial={{ opacity: 0, y: 20 }}

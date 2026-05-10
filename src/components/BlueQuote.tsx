@@ -9,8 +9,11 @@ export const BlueQuote: React.FC = () => {
     offset: ["start 80%", "end 20%"]
   });
 
-  const opacity = useTransform(scrollYProgress, [0, 0.3, 0.7, 1], [0, 1, 1, 0]);
+  const opacity = useTransform(scrollYProgress, [0, 0.25, 0.75, 1], [0, 1, 1, 0]);
   const scale = useTransform(scrollYProgress, [0, 0.5, 1], [0.95, 1, 0.95]);
+  const y = useTransform(scrollYProgress, [0, 0.25, 0.75, 1], [40, 0, 0, -40]);
+  const blur = useTransform(scrollYProgress, [0, 0.25, 0.75, 1], [15, 0, 0, 15]);
+  const filter = useTransform(blur, (v) => `blur(${v}px)`);
 
   const [hearts, setHearts] = useState<{id: number, x: number, y: number}[]>([]);
   const [heartId, setHeartId] = useState(0);
@@ -30,10 +33,10 @@ export const BlueQuote: React.FC = () => {
   };
 
   return (
-    <section ref={containerRef} className="relative min-h-[80svh] w-full flex items-center justify-center px-6 py-24">
+    <section ref={containerRef} className="relative min-h-[100svh] w-full flex items-center justify-center px-6 py-24 overflow-hidden">
       <motion.div 
-        style={{ opacity, scale }}
-        className="max-w-4xl mx-auto text-center relative"
+        style={{ opacity, scale, y, filter }}
+        className="max-w-4xl mx-auto text-center relative will-change-transform will-change-filter"
       >
         <h2 className="font-serif text-3xl md:text-5xl lg:text-6xl leading-[1.4] md:leading-[1.5] text-[var(--base-text)] font-light">
           "Blue used to just be a color.{" "}

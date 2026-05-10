@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'motion/react';
 import { cn } from '../lib/utils';
 
@@ -9,14 +9,24 @@ interface NoteProps {
 }
 
 const Note: React.FC<NoteProps> = ({ text, className, align = 'left' }) => {
+  const ref = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start 95%", "end 5%"]
+  });
+
+  // Very gentle up/down and blur effect depending on the scroll
+  const opacity = useTransform(scrollYProgress, [0, 0.15, 0.85, 1], [0, 1, 1, 0]);
+  const y = useTransform(scrollYProgress, [0, 0.15, 0.85, 1], [50, 0, 0, -50]);
+  const blur = useTransform(scrollYProgress, [0, 0.15, 0.85, 1], [20, 0, 0, 20]);
+  const filter = useTransform(blur, (v) => `blur(${v}px)`);
+
   return (
     <motion.div 
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-10%" }}
-      transition={{ duration: 1.2, ease: "easeOut" }}
+      ref={ref}
+      style={{ opacity, y, filter }}
       className={cn(
-        "my-24 md:my-32 max-w-xl mx-auto px-6",
+        "my-32 md:my-48 max-w-xl mx-auto px-6 will-change-transform will-change-filter",
         align === 'right' ? "text-right" : "text-left",
         className
       )}
