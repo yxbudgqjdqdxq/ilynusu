@@ -25,19 +25,53 @@ export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ childre
         return;
       }
 
-      // BD Time is UTC+6
+      // Smart Auto Detection from device
       const now = new Date();
-      const utc = now.getTime() + (now.getTimezoneOffset() * 60000);
-      const bdTime = new Date(utc + (3600000 * 6));
-      const hours = bdTime.getHours();
+      const hours = now.getHours();
+      const month = now.getMonth();
       
-      // Night is 6 PM (18) to 6 AM (6)
-      setIsNight(hours >= 18 || hours < 6);
+      // Smart seasonal sunrise/sunset approximation (Northern Hemisphere)
+      let sunset = 18; // 6 PM base
+      let sunrise = 6; // 6 AM base
+      
+      // Summer (May - Aug): longer days
+      if (month >= 4 && month <= 7) {
+        sunset = 19; // 7 PM
+        sunrise = 5; // 5 AM
+      } 
+      // Winter (Nov - Feb): shorter days
+      else if (month >= 10 || month <= 1) {
+        sunset = 17; // 5 PM
+        sunrise = 6.5; // ~6:30 AM
+      }
+
+      let isTimeNight = hours >= sunset || hours < sunrise;
+
+      // Check device system preference
+      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      
+      // If time is borderline (twilight hour), let system preference decide
+      if (hours === Math.floor(sunset) - 1 || hours === Math.floor(sunset)) {
+         isTimeNight = prefersDark || hours >= sunset; 
+      }
+      
+      setIsNight(isTimeNight);
     };
 
     checkTime();
+
+    // Listen for system theme changes specifically when in auto mode
+    const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+    const handleChange = () => {
+      if (mode === 'auto') checkTime();
+    };
+    mediaQuery.addEventListener('change', handleChange);
+
     const interval = setInterval(checkTime, 60000); // Check every minute
-    return () => clearInterval(interval);
+    return () => {
+      clearInterval(interval);
+      mediaQuery.removeEventListener('change', handleChange);
+    };
   }, [mode]);
 
   useEffect(() => {
