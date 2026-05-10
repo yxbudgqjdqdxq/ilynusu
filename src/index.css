@@ -1,0 +1,153 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", sans-serif;
+  --font-serif: "Cormorant Garamond", serif;
+  --font-handwriting: "Great Vibes", cursive;
+}
+
+@layer base {
+  :root {
+    /* Theme: Blue (Day) */
+    --base-bg: #E8ECEF; /* Platinum */
+    --base-text: #1C2B48; /* Midnight Blue */
+    --base-accent: #8EB1D1; /* Cool Cerulean */
+    --base-muted: #A7C7E7; /* Baby Blue Eyes */
+    --base-glass: rgba(255, 255, 255, 0.4);
+    --base-glass-border: rgba(255, 255, 255, 0.5);
+    --base-particle: rgba(28, 43, 72, 0.1);
+  }
+
+  .is-night {
+    --base-bg: #1C2B48; /* Midnight Blue */
+    --base-text: #E8ECEF; /* Platinum */
+    --base-accent: #A7C7E7; /* Baby Blue Eyes */
+    --base-muted: #8EB1D1; /* Cool Cerulean */
+    --base-glass: rgba(28, 43, 72, 0.6);
+    --base-glass-border: rgba(232, 236, 239, 0.15);
+    --base-particle: rgba(232, 236, 239, 0.2);
+  }
+
+  /* Theme: Pink */
+  .theme-pink {
+    --base-bg: #EBD7CE; /* Almond */
+    --base-text: #836871; /* Old Lavender */
+    --base-accent: #A37E84; /* Mountbatten Pink */
+    --base-muted: #CDADAB; /* Silver Pink */
+    --base-glass: rgba(255, 255, 255, 0.4);
+    --base-glass-border: rgba(255, 255, 255, 0.5);
+    --base-particle: rgba(131, 104, 113, 0.1);
+  }
+
+  .theme-pink.is-night {
+    --base-bg: #836871; /* Old Lavender */
+    --base-text: #EBD7CE; /* Almond */
+    --base-accent: #CDADAB; /* Silver Pink */
+    --base-muted: #917F88; /* Taupe Gray */
+    --base-glass: rgba(131, 104, 113, 0.6);
+    --base-glass-border: rgba(235, 215, 206, 0.15);
+    --base-particle: rgba(235, 215, 206, 0.2);
+  }
+
+  /* Theme: Lavender */
+  .theme-lavender {
+    --base-bg: #DAD4DF; /* Silver Wisteria */
+    --base-text: #312A44; /* Midnight Orchid */
+    --base-accent: #88708E; /* Dusky Lilac */
+    --base-muted: #BAB0C8; /* Iris Mist */
+    --base-glass: rgba(255, 255, 255, 0.4);
+    --base-glass-border: rgba(255, 255, 255, 0.5);
+    --base-particle: rgba(49, 42, 68, 0.1);
+  }
+
+  .theme-lavender.is-night {
+    --base-bg: #312A44; /* Midnight Orchid */
+    --base-text: #DAD4DF; /* Silver Wisteria */
+    --base-accent: #BAB0C8; /* Iris Mist */
+    --base-muted: #88708E; /* Dusky Lilac */
+    --base-glass: rgba(49, 42, 68, 0.6);
+    --base-glass-border: rgba(218, 212, 223, 0.15);
+    --base-particle: rgba(218, 212, 223, 0.2);
+  }
+
+  /* Theme: Axolotl (Green/Beige) */
+  .theme-axolotl {
+    --base-bg: #D7CBB2; /* Dark Vanilla */
+    --base-text: #6A7A5A; /* Axolotl */
+    --base-accent: #8DAF9B; /* Morning Blue */
+    --base-muted: #BED2BA; /* Jet Stream */
+    --base-glass: rgba(255, 255, 255, 0.4);
+    --base-glass-border: rgba(255, 255, 255, 0.5);
+    --base-particle: rgba(106, 122, 90, 0.1);
+  }
+
+  .theme-axolotl.is-night {
+    --base-bg: #6A7A5A; /* Axolotl */
+    --base-text: #D7CBB2; /* Dark Vanilla */
+    --base-accent: #BED2BA; /* Jet Stream */
+    --base-muted: #8DAF9B; /* Morning Blue */
+    --base-glass: rgba(106, 122, 90, 0.6);
+    --base-glass-border: rgba(215, 203, 178, 0.15);
+    --base-particle: rgba(215, 203, 178, 0.2);
+  }
+
+  /* Theme: Lotus (Dark Green/Beige) */
+  .theme-lotus {
+    --base-bg: #F7F4D5; /* Beige */
+    --base-text: #0A3323; /* Dark green */
+    --base-accent: #839958; /* Moss green */
+    --base-muted: #D3968C; /* Rosy brown */
+    --base-glass: rgba(255, 255, 255, 0.4);
+    --base-glass-border: rgba(255, 255, 255, 0.5);
+    --base-particle: rgba(10, 51, 35, 0.1);
+  }
+
+  .theme-lotus.is-night {
+    --base-bg: #0A3323; /* Dark green */
+    --base-text: #F7F4D5; /* Beige */
+    --base-accent: #839958; /* Moss green */
+    --base-muted: #105666; /* Midnight green */
+    --base-glass: rgba(10, 51, 35, 0.6);
+    --base-glass-border: rgba(247, 244, 213, 0.15);
+    --base-particle: rgba(247, 244, 213, 0.2);
+  }
+
+  body {
+    background-color: var(--base-bg);
+    color: var(--base-text);
+    transition: background-color 1.5s cubic-bezier(0.4, 0, 0.2, 1), color 1.5s cubic-bezier(0.4, 0, 0.2, 1);
+    overflow-x: hidden;
+  }
+}
+
+@layer utilities {
+  .glass-panel {
+    background: var(--base-glass);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid var(--base-glass-border);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.05);
+  }
+  
+  .hide-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .hide-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .text-glow {
+    text-shadow: 0 0 20px var(--base-accent);
+  }
+}
+
+/* Custom Cursor Hide default */
+@media (pointer: fine) {
+  body {
+    cursor: none;
+  }
+  a, button, [role="button"] {
+    cursor: none;
+  }
+}
