@@ -48,16 +48,16 @@ export const Meaning: React.FC = () => {
         
         <MeaningBlock 
           name="Mahadiyat"
-          title="The quiet guidance."
-          content="Usually, they say it means being guided. To me, it just means the exact cadence of your voice when you tell me to drive safe. It's not loud. It doesn't have to be. It's just the steady pull bringing me back to earth when I'm floating too far off."
+          title="the hum."
+          content="she hums. randomly. mid-sentence sometimes, like her brain just switches frequencies and she starts singing something and i genuinely forget what i was saying. that's what her name means to me. not guidance in some grand sense. just that. the hum. the way she breaks into something without warning and pulls me back into the room without even trying."
         />
 
         <MeaningBlock 
           name="Nusu"
-          title="The missing weight."
+          title="the wrong shape of quiet."
           align="right"
-          content="They say it means half. But that sounds too neat, too mathematical. I think it means the way my hands feel conspicuously empty when you're not walking next to me. The part of the room that suddenly matters just because you sat there."
-          quote="I looked up the roots, but honestly, it just means the reason my phone is always on 10% from falling asleep on calls."
+          content="nusu means half. mathematically fine, emotionally useless as a definition. i think it means the specific shape of a silence. the kind where you were just talking to someone and now you're not and the room doesn't adjust. it just stays wrong. half is too clean. it's more like the other side of a call that went quiet and you don't want to be the one to hang up."
+          quote="looked up what it means. didn't need to. it's just the reason my phone dies at 2am and i don't even care."
         />
 
       </div>

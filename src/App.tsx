@@ -39,8 +39,8 @@ export default function App() {
             <SecretMessage />
             
             <footer className="w-full py-12 text-center text-xs font-sans text-[var(--base-muted)]/40 tracking-widest uppercase">
-              <p className="mb-2">For Mahadiyat</p>
-              <p>Made with love in a browser. It's too late. Go to sleep.</p>
+              <p className="mb-2">for mahadiyat.</p>
+              <p>made at an hour i won't admit. go to sleep.</p>
             </footer>
           </main>
         </SmoothScroll>

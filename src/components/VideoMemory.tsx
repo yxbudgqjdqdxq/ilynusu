@@ -38,8 +38,8 @@ export const VideoMemory: React.FC = () => {
           <h3 className="font-serif text-3xl md:text-5xl text-[var(--base-text)] italic font-light mb-4">
             Motion sickness.
           </h3>
-          <p className="font-sans text-[var(--base-muted)] max-w-md mx-auto text-sm md:text-base">
-            I kept this one. You laughing, the camera shaking, the perfect chaos of it all.
+          <p className="font-sans text-[var(--base-muted)] max-w-md mx-auto text-sm md:text-base lowercase">
+            you were laughing and the camera was shaking and i was probably the reason for both. i kept it. obviously i kept it.
           </p>
         </div>
 

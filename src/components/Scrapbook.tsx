@@ -70,53 +70,63 @@ export const Scrapbook: React.FC = () => {
         {/* We assume images exist in /media/, with fallbacks to Unsplash in the component */}
         
         <Polaroid 
-          src="/media/our-photo-1.jpg" 
-          alt="Us" 
+          src="/media/her-photo-down.jpg" 
+          alt="Her lying down" 
           rotation={-6} 
           xOffset={-150} 
           yOffset={-100} 
-          caption="hoodie sleeves"
-          className="left-1/4 top-1/4 hidden md:block"
+          caption="you were just lying there. i don't know why this one stayed with me."
+          className="left-1/4 top-[10%] hidden md:block"
         />
         
         <Polaroid 
-          src="/media/her-photo-1.jpg" 
-          alt="Her" 
+          src="/media/her-photo-bw.jpg" 
+          alt="Her B&W glasses" 
           rotation={4} 
-          xOffset={100} 
+          xOffset={150} 
           yOffset={-150} 
-          caption="4:00 PM"
-          className="right-1/4 top-1/4"
+          caption="the glasses. the look. she knows exactly what she's doing."
+          className="right-1/4 top-[15%]"
         />
 
-        <Polaroid 
-          src="/media/our-photo-2.jpg" 
-          alt="Us again" 
-          rotation={-3} 
-          xOffset={-100} 
-          yOffset={100} 
-          caption="awkward smiles"
-          className="left-1/3 bottom-1/4"
-        />
-
-        <Polaroid 
-          src="/media/nasa-1.jpg" 
-          alt="Aesthetic space" 
-          rotation={8} 
-          xOffset={200} 
-          yOffset={50} 
-          className="right-1/3 bottom-1/3 w-32 sm:w-40 md:w-48 hidden sm:block"
-        />
-
-        {/* Nuzu's Drawing as a polaroid */}
         <Polaroid 
           src="/media/potato-chibi.png" 
           alt="Potato Chibi" 
           rotation={-10} 
-          xOffset={0} 
-          yOffset={0} 
-          caption="by Nuzu (we are potatoes)"
-          className="z-20"
+          xOffset={-30} 
+          yOffset={30} 
+          caption="nuzu made this. i am the ugly potato on the right."
+          className="z-20 md:left-1/3 md:top-1/2"
+        />
+
+        <Polaroid 
+          src="/media/toca-boca.jpg" 
+          alt="Toca Boca avatars" 
+          rotation={8} 
+          xOffset={-200} 
+          yOffset={150} 
+          caption="we built ourselves in a game. somehow still us."
+          className="left-1/3 bottom-[15%] hidden sm:block"
+        />
+
+        <Polaroid 
+          src="/media/sister-flower.jpg" 
+          alt="With sister flower filter" 
+          rotation={-3} 
+          xOffset={120} 
+          yOffset={100} 
+          caption="she wanted to join. she was right to."
+          className="right-1/3 bottom-[20%]"
+        />
+
+        <Polaroid 
+          src="/media/her-stickers.jpg" 
+          alt="Her dramatic photo with stickers" 
+          rotation={5} 
+          xOffset={200} 
+          yOffset={250} 
+          caption="i made those little guys. they are all me. i have no notes."
+          className="right-[15%] bottom-[10%] hidden lg:block"
         />
 
       </div>

@@ -132,7 +132,7 @@ export const LoadingScreen: React.FC<LoadingScreenProps> = ({ onComplete }) => {
           transition={{ delay: 1.5, duration: 1.5 }}
           className="mt-8 text-[10px] md:text-xs font-sans tracking-[0.4em] uppercase text-white/50"
         >
-          {isReady ? "Breathe." : "Curating memories"}
+          {isReady ? "okay. hi." : "finding the right words."}
         </motion.p>
       </motion.div>
     </AnimatePresence>

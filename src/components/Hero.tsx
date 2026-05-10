@@ -68,16 +68,16 @@ export const Hero: React.FC = () => {
           transition={{ duration: 1, delay: 0.2 }}
           className="font-handwriting text-2xl md:text-3xl lg:text-4xl text-[var(--base-muted)] mb-6 -rotate-2"
         >
-          It's 3:14 AM and
+          some things i kept. some things i probably shouldn't have. all of them yours.
         </motion.p>
         
         <motion.h1 
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.5 }}
-          className="font-serif text-4xl md:text-6xl lg:text-7xl font-medium tracking-tight leading-tight text-[var(--base-text)]"
+          className="font-serif text-5xl md:text-7xl lg:text-8xl font-medium tracking-tight leading-tight text-[var(--base-text)]"
         >
-          I'm thinking about how you <span className="italic text-[var(--base-accent)]">arrange</span> your bookshelf.
+          Nusu
         </motion.h1>
 
         <motion.p 
@@ -86,7 +86,7 @@ export const Hero: React.FC = () => {
           transition={{ duration: 1, delay: 1.5 }}
           className="mt-12 text-sm font-sans tracking-wide text-[var(--base-muted)]/70 uppercase"
         >
-          Scroll softly
+          go slow.
         </motion.p>
       </motion.div>
     </section>

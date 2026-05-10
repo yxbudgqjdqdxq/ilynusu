@@ -32,11 +32,11 @@ export const SecretMessage: React.FC = () => {
               <Heart className="text-[var(--base-accent)] w-12 h-12 stroke-[1px] animate-pulse" />
               
               <p className="font-serif text-2xl md:text-4xl text-[var(--base-text)] italic leading-relaxed">
-                "In case you didn't know... you mean the world to me."
+                "you weren't supposed to find this.<br/><br/>but since you did. hi. yeah. you mean everything."
               </p>
               
               <p className="font-sans text-xs uppercase tracking-widest text-[var(--base-muted)] mt-8">
-                - Secret Easter Egg #2 found
+                - easter egg 2. go tell me you found it.
               </p>
 
               <button 

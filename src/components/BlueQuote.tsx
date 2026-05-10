@@ -38,13 +38,13 @@ export const BlueQuote: React.FC = () => {
         style={{ opacity, scale, y, filter }}
         className="max-w-4xl mx-auto text-center relative will-change-transform will-change-filter"
       >
-        <h2 className="font-serif text-3xl md:text-5xl lg:text-6xl leading-[1.4] md:leading-[1.5] text-[var(--base-text)] font-light">
-          "Blue used to just be a color.{" "}
+        <h2 className="font-serif text-3xl md:text-5xl lg:text-6xl leading-[1.4] md:leading-[1.5] text-[var(--base-text)] font-light lowercase">
+          "blue was just blue.{" "}
           <span 
             className="italic text-[var(--base-accent)] whitespace-nowrap cursor-pointer relative inline-block group"
             onClick={spawnHeart}
           >
-            Then you happened.
+            then you happened.
             {/* Tooltip hint */}
             <span className="absolute -top-6 left-1/2 -translate-x-1/2 text-[8px] font-sans text-[var(--base-muted)] opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none">
               (click me)
@@ -66,7 +66,7 @@ export const BlueQuote: React.FC = () => {
               ))}
             </AnimatePresence>
           </span>{" "}
-          Now every shade of blue feels like something that belongs to you, so I think it belongs to me too."
+          you had this tiny blue clip in your hair and the caption said something like 'bootiful' and i think that was the last day blue belonged to everyone. now it's just yours. and because it's yours, i guess it's mine too. bluetiful."
         </h2>
       </motion.div>
     </section>

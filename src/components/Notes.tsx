@@ -53,25 +53,31 @@ export const Notes: React.FC = () => {
       <div className="relative z-10 max-w-3xl mx-auto py-20 pb-40">
         
         <Note 
-          text="I remember the first time I noticed you. Not 'saw' you, but actually noticed you. It was quiet." 
+          text="ammu made food and abbu did that thing where he laughs too loud and her sister was just being herself and i sat in the middle of all of it and thought. oh. this is what it's supposed to feel like." 
           align="left"
         />
         
         <Note 
-          text="Nuzu drew us like potatoes. She’s ten, but she somehow captured exactly how safe I feel in your oversized hoodie." 
+          text="i never fully had this. a family that just works. and she doesn't even know that watching hers from the outside is the nicest thing anyone's ever accidentally done for me." 
           align="right"
           className="mr-12 md:mr-24"
         />
 
         <Note 
-          text="You leave fingerprints on my screen. I used to wipe them off. Now I kind of just trace them when you're not here." 
+          text="she hums when she's not paying attention. i start paying more attention." 
           align="left"
           className="ml-8 md:ml-32"
         />
 
         <Note 
-          text="The late notifications. The asleep-on-call breathing. I wouldn't trade it for a symphony." 
+          text="she's dedicated. she really is. with some footnotes i won't get into. but the core of it. yeah. i see it." 
           align="right"
+        />
+
+        <Note 
+          text="i keep thinking about whether i want her in my life and the answer keeps coming back the same way. not dramatically. just yes. obviously yes. next question." 
+          align="left"
+          className="ml-4 md:ml-12"
         />
 
       </div>
